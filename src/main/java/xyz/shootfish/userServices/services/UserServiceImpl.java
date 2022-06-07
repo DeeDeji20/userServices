@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserProfile createUser(UserRequest request) {
-        if (validateUser(request.getId())) throw new AuthException("Email already exist");
+//        if (validateUser(request.getId())) throw new AuthException("Email already exist");
         if (validateEmail(request.getEmail())) throw new AuthException("Email already exist");
         if(!request.getPassword().matches(request.getConfirmPassword())) throw new AuthException("password must match");
         User user = modelMapper.map(request, User.class);
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getUser(String id) {
-        return userRepository.findById(id).orElseThrow(()-> new UserException("User doe not exist"));
+        return userRepository.findById(id).orElseThrow(()-> new UserException("User does not exist"));
     }
 
     @Override
@@ -62,7 +62,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public String updateUser(String id, UpdateProfileRequest updateRequest) {
         User user = userRepository.findById(id).orElseThrow(()->new UserException("user not found"));
-        if (!updateRequest.getLastName().equals(user.getLastName()) || updateRequest.getLastName() != null) user.setLastName(updateRequest.getLastName());
         modelMapper.map(updateRequest, user);
         userRepository.save(user);
         return "profile updated";

@@ -68,13 +68,13 @@ public class UserController {
         return userService.getAllUser();
     }
 
-    @GetMapping("/deleteUser/{email}")
-    public ResponseEntity<?> delete(@PathVariable String email){
+    @GetMapping("/deleteUser/{id}")
+    public ResponseEntity<?> delete(@PathVariable String id){
         try{
             ApiResponse response = ApiResponse
                     .builder()
                     .isSuccessful(true)
-                    .message("" + userService.deleteUser(email))
+                    .message("" + userService.deleteUser(id))
                     .build();
 
             return  new ResponseEntity<>(response, HttpStatus.OK);
@@ -90,13 +90,13 @@ public class UserController {
         }
     }
 
-    @PatchMapping("/updateUser/{email}")
-    public ResponseEntity<?> update(@PathVariable String email, @RequestBody UpdateProfileRequest request){
+    @PatchMapping("/updateUser/{id}")
+    public ResponseEntity<?> update(@PathVariable String id, @RequestBody UpdateProfileRequest request){
         try{
             ApiResponse response = ApiResponse
                     .builder()
                     .isSuccessful(true)
-                    .message("" + userService.updateUser(email, request))
+                    .message("" + userService.updateUser(id, request))
                     .build();
 
             return  new ResponseEntity<>(response, HttpStatus.OK);
@@ -107,7 +107,6 @@ public class UserController {
                     .isSuccessful(false)
                     .message(ex.getMessage())
                     .build();
-
             return  new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
     }
