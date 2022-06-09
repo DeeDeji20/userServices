@@ -1,6 +1,6 @@
 package xyz.shootfish.userServices.web.controllers;
 
-import io.swagger.annotations.ApiResponses;
+//import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +17,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/user")
-@ApiResponses(value = {
-        @io.swagger.annotations.ApiResponse(code = 400, message = "This is a bad request, please follow the API documentation for the proper request format"),
-        @io.swagger.annotations.ApiResponse(code = 401, message = "Due to security constraints, your access request cannot be authorized"),
-        @io.swagger.annotations.ApiResponse(code = 500, message = "The server is down. Please bear with us."),
-}
+//@ApiResponses(value = {
+//        @io.swagger.annotations.ApiResponse(code = 400, message = "This is a bad request, please follow the API documentation for the proper request format"),
+//        @io.swagger.annotations.ApiResponse(code = 401, message = "Due to security constraints, your access request cannot be authorized"),
+//        @io.swagger.annotations.ApiResponse(code = 500, message = "The server is down. Please bear with us."),
+//}
 public class UserController {
 
     @Autowired
