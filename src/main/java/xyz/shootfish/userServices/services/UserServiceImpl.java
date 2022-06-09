@@ -67,7 +67,4 @@ public class UserServiceImpl implements UserService{
         return "profile updated";
     }
 
-    private boolean validateUser(String id) {
-        return userRepository.existsById(id);
-    }
 }
