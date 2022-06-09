@@ -24,7 +24,6 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserProfile createUser(UserRequest request) {
-//        if (validateUser(request.getId())) throw new AuthException("Email already exist");
         if (validateEmail(request.getEmail())) throw new AuthException("Email already exist");
         if(!request.getPassword().matches(request.getConfirmPassword())) throw new AuthException("password must match");
         User user = modelMapper.map(request, User.class);
