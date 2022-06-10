@@ -70,7 +70,7 @@ public class UserController {
         return userService.getAllUser();
     }
 
-    @GetMapping("/deleteUser/{id}")
+    @DeleteMapping("/deleteUser/{id}")
     public ResponseEntity<?> delete(@PathVariable String id){
         try{
             ApiResponse response = ApiResponse
