@@ -16,7 +16,7 @@ import xyz.shootfish.userServices.web.payload.response.UserRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("/api/v1/user")
 
 public class UserController {
 
